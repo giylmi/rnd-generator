@@ -24,6 +24,16 @@ public class BitsSequence {
         return bitsLength;
     }
 
+    public BitsSequence xor(BitsSequence another) {
+        if (bitsLength != another.bitsLength) {
+            throw new IllegalArgumentException();
+        }
+        for (int i = 0; i < bitsLength; ++i) {
+            setBit(i, (byte) (getBit(i) ^ another.getBit(i)));
+        }
+        return this;
+    }
+
     public BitsSequence consumeLast(short bitsLength) {
         if (bitsLength > this.bitsLength)
             throw new ArrayIndexOutOfBoundsException();
@@ -52,6 +62,16 @@ public class BitsSequence {
         return (byte) ((buffer[bytesNum] >> bitsNum) % 2);
     }
 
+    public void setBit(int pos, byte bit) {
+        if (pos > bitsLength) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        short bytesNum = (short) (pos / 8);
+        byte bitsNum = (byte) (pos % 8);
+        buffer[bytesNum] -= ((buffer[bytesNum] >> bitsNum) % 2) << bitsNum; // set bit to 0;
+        buffer[bytesNum] += (1 << bitsNum) * (bit % 2); // set bit to 0;
+    }
+
     public String print() {
         String res = "";
         for (int i = 0; i < bitsLength; ++i) {
@@ -78,5 +98,15 @@ public class BitsSequence {
         builder.append(']');
         builder.append("]");
         return builder.toString();
+    }
+
+    public void addByte(int b) {
+        addByte(b, 8);
+    }
+
+    public void addByte(int b, int bits) {
+        for (int i = bits - 1; i >= 0; --i) {
+            addBit((byte) ((b >> i) % 2));
+        }
     }
 }
