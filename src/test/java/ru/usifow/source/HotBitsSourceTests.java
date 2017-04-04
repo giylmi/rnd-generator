@@ -1,5 +1,6 @@
 package ru.usifow.source;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -16,6 +17,6 @@ public class HotBitsSourceTests {
         String print = source.getRandomBitsSequence(128).print();
         System.out.println("length: " + print.length());
         System.out.println(print);
-
+        Assert.assertEquals(128, print.length());
     }
 }

@@ -1,5 +1,7 @@
 package ru.usifow.model;
 
+import java.util.Objects;
+
 /**
  * Created by a.gilmullin on 21.03.2017.
  */
@@ -9,7 +11,7 @@ public class BitsSequence {
 
     public BitsSequence(String bits) {
         buffer = new short[(bits.length() % 8 == 0) ? bits.length() / 8 : (bits.length() / 8 + 1)];
-        for (int i = 0; i < bits.length(); ++i) {
+        for (int i = bits.length() - 1; i >= 0; --i) {
             if (bits.charAt(i) != '0' && bits.charAt(i) != '1')
                 throw new IllegalArgumentException();
             addBit((byte) (bits.charAt(i) - '0'));
@@ -53,7 +55,7 @@ public class BitsSequence {
         bitsLength++;
     }
 
-    private byte getBit(int pos) {
+    public byte getBit(int pos) {
         if (pos > bitsLength) {
             throw new ArrayIndexOutOfBoundsException();
         }
@@ -74,7 +76,7 @@ public class BitsSequence {
 
     public String print() {
         String res = "";
-        for (int i = 0; i < bitsLength; ++i) {
+        for (int i = bitsLength - 1; i >= 0; --i) {
             res += getBit(i);
         }
         return res;

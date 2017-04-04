@@ -19,7 +19,7 @@ public class BitsSequenceTests {
         sequence.addBit((byte) 0);
         sequence.addBit((byte) 1);
 
-        Assert.assertEquals("0101", sequence.print());
+        Assert.assertEquals("1010", sequence.print());
     }
 
     @Test
@@ -38,16 +38,16 @@ public class BitsSequenceTests {
         sequence.addBit((byte) 1);
 
         sequence.setBit(0, (byte) 0);
-        Assert.assertEquals("0101", sequence.print());
+        Assert.assertEquals("1010", sequence.print());
         sequence.setBit(0, (byte) 1);
-        Assert.assertEquals("1101", sequence.print());
+        Assert.assertEquals("1011", sequence.print());
     }
 
     @Test
     public void testXor() {
-        BitsSequence sequence1 = new BitsSequence("0101");
+        BitsSequence sequence1 = new BitsSequence("1010");
         BitsSequence sequence2 = new BitsSequence("1101");
 
-        Assert.assertEquals("1000", sequence1.xor(sequence2).print());
+        Assert.assertEquals("0111", sequence1.xor(sequence2).print());
     }
 }

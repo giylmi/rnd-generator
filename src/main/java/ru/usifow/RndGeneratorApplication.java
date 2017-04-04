@@ -4,7 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.usifow.repository.BitsRepository;
 import ru.usifow.repository.InternetSourceBitsRepository;
 import ru.usifow.repository.MultipleSourceXorBitsRepository;
 import ru.usifow.source.HotBitsSource;

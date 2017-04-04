@@ -9,7 +9,6 @@ import ru.usifow.source.Source;
 /**
  * Created by a.gilmullin on 21.03.2017.
  */
-@Repository
 public class InternetSourceBitsRepository implements BitsRepository {
 
     private Logger logger = LoggerFactory.getLogger(InternetSourceBitsRepository.class);
