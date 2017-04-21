@@ -7,8 +7,8 @@
 
     <title>Генератор битовой последовательности</title>
 
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css"/>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,8 +57,8 @@
     </div>
 </div>
 
-<script src="jquery-3.2.0.min.js"></script>
-<script src="index.js"></script>
+<script src="/jquery-3.2.0.min.js"></script>
+<script src="/index.js"></script>
 
 </body>
 </html>
